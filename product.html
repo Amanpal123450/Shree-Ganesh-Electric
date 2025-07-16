@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+      .hexagon {
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+        border: 1px solid #e11d48; /* red-600 */
+        padding: 10px;
+        width: 90px;
+        height: 90px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 ">
+
+    <nav class="bg-white shadow-lg px-4 py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+<div class="flex items-center gap-3">
+  <img
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752478825/photo-1662031225146-42e30158e800_c8i9bd.jpg"
+    alt="Electrician Logo"
+    class="w-14 h-14 rounded-full object-cover"
+  />
+  <h1 class="text-2xl font-extrabold text-gray-800">Shree Ganesh Electric</h1>
+</div>
+
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-gray-800 text-3xl focus:outline-none">
+          ☰
+        </button>
+      </div>
+
+      <!-- Desktop Nav links -->
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6 text-lg font-semibold text-gray-800">
+          <li><a href="./index.html" class=" hover:text-orange-600 transition">Home</a></li>
+          <li><a href="./about.html" class="hover:text-orange-500 transition">About Us</a></li>
+          <li><a href="./product.html" class="hover:text-orange-500 transition">Shop</a></li>
+          <li><a href="./contact.html" class="hover:text-orange-500 transition">Contact Us</a></li>
+        </ul>
+        <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md flex items-center gap-2 transition">
+         <a href="tel:+9934051897" class="pr-2">📞Call Now</a> 
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-4 space-y-3 text-gray-800 font-semibold">
+      <a href="./index.html" class="block text-orange-500 py-2">Home</a>
+      <a href="./about.html" class="block hover:text-orange-500 py-2">About Us</a>
+      <a href="./product.html" class="block hover:text-orange-500 py-2">Shop</a>
+      <a href="./contact.html" class="block hover:text-orange-500 py-2">Contact Us</a>
+      <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-5 rounded-md flex items-center justify-center gap-2 transition mt-4">
+ <a href="tel:+9934051897" class="pr-2">📞Call Now</a> 
+      </button>
+    </div>
+  </nav>
+
+
+  <section class="relative text-white">
+  <!-- Background Image with Gradient Overlay -->
+  <div class="absolute inset-0 h-full">
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-black/60 to-transparent z-10"></div>
+
+    <!-- Background Image -->
+    <img
+      src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752498787/IMG-20250714-WA0003_uu8zpg.jpg"
+      alt="Electric Tools"
+      class="w-full h-full object-cover opacity-90"
+    />
+  </div>
+
+  <!-- Content Container -->
+  <div class="max-w-6xl mx-auto px-4 py-20 relative z-20">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      
+      <!-- Left Text -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Shree Ganesh Electric</h1>
+        <p class="text-lg mb-6">Trusted Electrical Solutions for Every Need</p>
+        <p class="mb-6">
+          Over 25 years of experience in electrical services. From home wiring to industrial installations, we deliver safe, cost-effective solutions.
+        </p>
+        <a href="#contact"
+           class="inline-block bg-white text-black font-semibold px-6 py-3 rounded-md hover:bg-orange-100 transition">
+          Book Appointment
+        </a>
+      </div>
+
+      <!-- Right Empty for layout balance -->
+      
+    </div>
+  </div>
+</section>
+
+   <div class="max-w-7xl mx-auto p-[70px]">
+  <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Cards will be injected here -->
+  </div>
+
+  <!-- Pagination Buttons -->
+  <div class="flex justify-center mt-8 gap-4">
+    <button id="prevBtn" class="px-4 py-2 bg-gray-200 rounded">Previous</button>
+    <button id="nextBtn" class="px-4 py-2 bg-gray-200 rounded">Next</button>
+  </div>
+</div>
+
+<script>
+  const cardData = [
+    {
+      title: "Fan Installation",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752498785/IMG-20250714-WA0008_vyjh0c.jpg",
+    },
+    {
+      title: "Wiring & Cabling Services",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569153/colorful-coiled-wires-stacked-neatly-in-various-colors-and-sizes-free-png_tpogtb.webp",
+    },
+    {
+      title: "Led Bulb ",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569139/G03-400x400_3_cyxbe3.jpg",
+    },
+    {
+      title: "Fan",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569138/pngtree-a-metal-fan-on-transparent-background-png-image_13503777_muqpo5.png",
+    },
+    {
+      title: "Crompton Aura",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569138/b911449fa17bf13be4224b9002f3ec41_ombptv.jpg",
+    },
+    {
+      title: "Havells V3 Yurbo",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569139/mark2pedestal_q1vsxc.png",
+    },
+    {
+      title: "Wiring & Cabling",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569146/electrical-cable-energy-technology-equipment-isolated-white_93675-129852_jllpeo.avif",
+    },
+    {
+      title: "LED Lights",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569145/G03-400x400_2_xyuqvm.jpg",
+    },
+    {
+      title: "LED Lights",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569145/download_1_dgfenw.jpg",
+    },
+    {
+      title: "UTL Batteries",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569137/Inverter-Battery-Electric-PNG_qavbl2.png",
+    },
+    {
+      title: "Solar Panels & Kits",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569134/ai-generated-solar-panel-isolated-png_xamwqm.webp",
+    },
+    {
+      title: "Swich Kits",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752569160/pngtree-double-switch-and-receptacle-socket-electrical-tool-equipment-png-image_11500056_l28q77.png",
+    },
+    {
+      title: "White .5 inch Pvc Conduit Pipes",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662275/electrical-pvc-pipe_mhqao3.png",
+    },
+    {
+      title: "Girija Electrical PVC Tee Conduit",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661980/LT-TP_ozcsf7.webp",
+    },
+    {
+      title: "Pvc Pipe",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661980/pvc-conduit-pipes-500x500_szqvzp.webp",
+    },
+     {
+      title: "L&T Tripper, Triple Pole, C-Curve MCB",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661980/pngtree-blue-three-way-pvc-pipe-fitting-png-image_10151738_w1cj51.png",
+    },
+     {
+      title: "Simon Electric",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661979/images_uxghhe.jpg",
+    },
+     {
+      title: "Simon Electric Switch",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661979/download_4_pyu7bn.jpg",
+    },
+     {
+      title: "Electric Switch,",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752661979/rectangular-shape-modular-electricity-switch-boards-805_wk4win.jpg",
+    },
+     {
+      title: "Switches",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662823/pngtree-affordable-switch-socket-solutions-benefits-of-upgrading-to-modern-sockets-isolated-png-image_13010487_ppfur9.png",
+    },
+     {
+      title: "Switch Socket",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662823/Electrical-Switch-Transparent_qz3bdy.png",
+    },
+     {
+      title: "Dimmer Switch",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662822/dimmer-switch-koNnKn2-600_kgzk5s.jpg",
+    },
+     {
+      title: "Electrical Switch PNG Transparent",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662823/images_1_dji7dk.jpg",
+    },
+     {
+      title: "Fine Switches | Modular",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662823/f170_s8lakg.png",
+    },
+     {
+      title: "Fine Switches | Switch Socket",
+      img: "https://res.cloudinary.com/dy2wdngax/image/upload/v1752662822/f172_fvmppq.png",
+    },
+  ];
+
+  const cardsPerPage = 12;
+  let currentPage = 1;
+
+  const container = document.getElementById("card-container");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  function renderCards() {
+    container.innerHTML = ""; // Clear previous cards
+    const start = (currentPage - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+    const cardsToShow = cardData.slice(start, end);
+
+    cardsToShow.forEach(card => {
+      container.innerHTML += `
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <img src="${card.img}" alt="${card.title}" class="w-50 h-50 object-contain max-h-[214px]" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">${card.title}</h3>
+          <a href="tel:+9934051897" class="text-red-600 font-semibold border-b-2 border-red-600">See More</a>
+        </div>
+      `;
+    });
+
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = end >= cardData.length;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentPage * cardsPerPage < cardData.length) {
+      currentPage++;
+      renderCards();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderCards();
+    }
+  });
+
+  renderCards();
+</script>
+
+
+
+   <footer class="bg-gray-800 text-white py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Company Info -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-orange-500 text-2xl">⚡</span>
+          <span class="text-2xl font-bold">Electrician</span>
+        </div>
+        <p class="text-gray-300 mb-6">
+          Our experienced electricians are highly trained in all aspects of electrical service, from office lighting and security systems to emergency repair.
+        </p>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <ul class="space-y-2">
+               <li><a href="./index.html" class=" hover:text-orange-600 transition">Home</a></li>
+          <li><a href="./about.html" class="hover:text-orange-500 transition">About Us</a></li>
+          <li><a href="./product.html" class="hover:text-orange-500 transition">Shop</a></li>
+          <li><a href="./contact.html" class="hover:text-orange-500 transition">Contact</a></li>
+            </ul>
+          </div>
+         
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+       <div class="space-y-4">
+  <div class="flex items-start gap-3">
+    <svg class="w-10 h-10 text-orange-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 10-2.828 2.828l4.243 4.243a8 8 0 111.414-1.414z"/>
+    </svg>
+    <span class="text-gray-300">
+     Shree Ganesh Electric ,Kanvi Electric<br>
+      Marwari Tola lane, R. B. D. P. D. Lane, (Bal Subodhni School Gali),<br>
+      Bhagalpur-812002
+    </span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+    </svg>
+    <span class="text-gray-300">+91 99340 51897</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>
+    <span class="text-gray-300">Mon-Fri 08:00 AM - 10:00 PM</span>
+  </div>
+</div>
+
+<div class="space-y-4 mt-8">
+  <div class="flex items-start gap-3">
+    <svg class="w-10 h-10 text-orange-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 10-2.828 2.828l4.243 4.243a8 8 0 111.414-1.414z"/>
+    </svg>
+    <span class="text-gray-300">
+    Sagar Electronics <br>
+Kotwali chowk, In front of Dr. aziz X-Ray, R. P. Road, Bhagalpur -812002
+    </span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+    </svg>
+    <span class="text-gray-300">+91 88099 05445</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>
+    <span class="text-gray-300">Mon-Fri 08:00 AM - 10:00 PM</span>
+  </div>
+</div>
+
+      </div>
+
+      <!-- Map Section -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Our Location</h3>
+        <p class="text-gray-300 mb-4">
+          Visit our office or use the map below to get directions to our location in Bhagalpur, Bihar.
+        </p>
+        <div class="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d75333.03174881818!2d86.8926503687367!3d25.24473834251081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f04be0bb6e051d%3A0x8ee2ee2a3e8ecf88!2sM.T.Lane%2C%20Bhagalpur%2C%20Bihar%20812001!3m2!1d25.2447612!2d86.9750519!5e1!3m2!1sen!2sin!4v1752557627735!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; 2024 Electrician Services. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script>
+
+   document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  });
+</script>
+
+</body>
+</html>

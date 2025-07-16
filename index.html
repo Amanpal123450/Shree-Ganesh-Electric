@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrician - Professional Electrical Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .service-section {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    
+    .service-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.5s ease;
+    }
+    
+    .service-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      transition: background 0.3s ease;
+    }
+    
+    .service-section:hover .service-bg {
+      transform: scale(1.1);
+    }
+    
+    .service-section:hover .service-overlay {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .lightning-bolt {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: #ff7a00;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .plus-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .plus-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .dot.active {
+      background-color: #ff7a00;
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .carousel-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+    
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .carousel-nav:hover {
+      background: rgba(255, 122, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .carousel-nav.prev {
+      left: 20px;
+    }
+    
+    .carousel-nav.next {
+      right: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-nav {
+        display: none;
+      }
+    }
+    
+    /* Service Card Hover Effects */
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Navigation -->
+    <!-- <div id="navbar"></div> -->
+
+
+     <nav class="bg-white shadow-lg px-4 py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+<div class="flex items-center gap-3">
+  <img
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752478825/photo-1662031225146-42e30158e800_c8i9bd.jpg"
+    alt="Electrician Logo"
+    class="w-14 h-14 rounded-full object-cover"
+  />
+  <h1 class="text-[15px] sm:text-2xl font-extrabold text-gray-800">Shree Ganesh Electric</h1>
+</div>
+
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-gray-800 text-3xl focus:outline-none">
+          ☰
+        </button>
+      </div>
+
+      <!-- Desktop Nav links -->
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6 text-lg font-semibold text-gray-800">
+          <li><a href="./index.html" class=" hover:text-orange-600 transition">Home</a></li>
+          <li><a href="./about.html" class="hover:text-orange-500 transition">About Us</a></li>
+          <li><a href="./product.html" class="hover:text-orange-500 transition">Shop</a></li>
+          <li><a href="./contact.html" class="hover:text-orange-500 transition">Contact Us</a></li>
+        </ul>
+        <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md flex items-center gap-2 transition">
+         <a href="tel:+9934051897" class="pr-2">📞Call Now</a> 
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="md:hidden hidden mt-4 space-y-3 text-gray-800 font-semibold">
+      <a href="./index.html" class="block text-orange-500 py-2">Home</a>
+      <a href="./about.html" class="block hover:text-orange-500 py-2">About Us</a>
+      <a href="./product.html" class="block hover:text-orange-500 py-2">Shop</a>
+      <a href="./contact.html" class="block hover:text-orange-500 py-2">Contact Us</a>
+      <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-5 rounded-md flex items-center justify-center gap-2 transition mt-4">
+ <a href="tel:+9934051897" class="pr-2">📞Call Now</a> 
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+ <section id="home"
+  class="relative bg-cover bg-center bg-no-repeat min-h-[600px] flex items-center justify-center text-white"
+  style="background-image: url('https://res.cloudinary.com/dy2wdngax/image/upload/v1752498788/IMG-20250714-WA0006_aurr6v.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Content -->
+  <div class="relative w-full px-4 py-20 sm:py-28 md:py-32 lg:py-36 max-w-7xl mx-auto text-center">
+    
+    <!-- Headings -->
+    <div class="mb-10">
+      <p class="text-orange-400 text-sm uppercase font-semibold mb-2 tracking-widest">Making our clients happier</p>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+        Best Services for <br />
+        Your Family
+      </h1>
+    </div>
+
+    <!-- Form Section -->
+    <div class="relative w-full max-w-7xl mx-auto mt-12 px-2 sm:px-4">
+      <!-- Header Label -->
+      <div class="absolute -top-6 left-4 bg-orange-500 text-white px-4 sm:px-6 py-1 sm:py-2 rounded-t-lg text-sm sm:text-lg font-semibold shadow-md">
+        Request Service Today
+      </div>
+
+      <!-- Form Box -->
+    <div class="bg-slate-800 bg-opacity-90 rounded-lg p-4 sm:p-6 pt-8 sm:pt-10">
+  <form
+    id="serviceForm"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+    action="https://formsubmit.co/amanpal6000@gmail.com"
+    method="POST"
+    novalidate
+  >
+    <input type="hidden" name="_captcha" value="false" />
+
+    <input
+  type="text"
+  name="name"
+  id="name"
+  placeholder="Your name"
+  pattern="[A-Za-z\s]{2,50}"
+  oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+  class="px-4 py-3 rounded-md text-black w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+  required
+/>
+
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Your e-mail"
+      class="px-4 py-3 rounded-md text-black w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+      required
+    />
+   <input
+  type="tel"
+  name="phone"
+  id="phone"
+  placeholder="Your phone"
+  maxlength="10"
+  pattern="[0-9]{10}"
+  inputmode="numeric"
+  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+  class="px-4 py-3 rounded-md text-black w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+  required
+/>
+
+    <input
+      type="date"
+      name="date"
+      id="date"
+      class="px-4 py-3 rounded-md text-black w-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+      required
+    />
+    <button
+      type="submit"
+      class="bg-orange-500 text-white font-semibold px-3 py-1 rounded-md flex items-center justify-center gap-2 hover:bg-orange-600 transition w-full"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- About Section -->
+  <section id="about" class="px-4 py-16 md:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Images Left -->
+      <div class="relative w-full lg:w-1/2">
+        <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752498786/WhatsApp_Image_2025-07-14_at_18.39.22_ace83196_d5a72t.jpg"
+          alt="Electrician" class="rounded-lg w-full h-auto shadow-lg" />
+        <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752498786/WhatsApp_Image_2025-07-14_at_18.39.23_e8898cfc_w0zzks.jpg"
+          alt="Power Grid" class="absolute bottom-[-40px] left-[-5px] sm:absolute bottom-[-40px] left-[-30px] w-2/3 rounded-lg shadow-lg border-4 border-white" />
+      </div>
+
+      <!-- Text Right -->
+      <div class="w-full lg:w-1/2">
+       
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
+          Outstanding Residential & Commercial Services
+        </h2>
+        <p class="text-gray-600 mb-6 text-lg">
+          All of our services are backed by our 100% satisfaction guarantee. Our electricians can install anything from new security lighting for your outdoors to a whole home generator that will keep your appliances working during a power outage.
+        </p>
+
+        <ul class="text-gray-700 space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="text-orange-500 mt-1 text-lg">✔</span>
+            <span>Full-service electrical layout, design</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-orange-500 mt-1 text-lg">✔</span>
+            <span>Wiring and installation/upgrades</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-orange-500 mt-1 text-lg">✔</span>
+            <span>Emergency power solutions (generators)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-orange-500 mt-1 text-lg">✔</span>
+            <span>Virtually any electrical needs you have – just ask!</span>
+          </li>
+        </ul>
+
+        <!-- Author -->
+        <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-lg">
+          <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752477758/WhatsApp_Image_2025-07-11_at_15.42.50_e3e9d19d_jnywrt.jpg"
+            class="w-16 h-16 rounded-full border-2 border-orange-200" alt="Mark Smith" />
+          <div class="flex-1">
+            <p class="font-bold text-gray-800 text-[9px] sm:text-2xl">Hemant Kumar Sah</p>
+            <p class="text-gray-500 text-[6px]">Your own electrician</p>
+          </div>
+          <div class="text-orange-500 font-script text-[10px] sm:text-2xl">Hemant Kumar Sah</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+ <div class="max-w-6xl mx-auto p-6">
+    <div class="headline-group mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Start Learning Electronics Card -->
+       <section class="image-content-card card-hover gradient-yellow p-4 cursor-pointer h-[376px] ">
+
+  <!-- Background Image + Yellow Gradient Overlay -->
+   <div class=" rounded-2xl overflow-hidden mb-4 flex justify-center">
+  <img 
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752650639/still-life-tech-device_pqnwc6.jpg" 
+    alt="Fun Electronic Projects" 
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  </div>
+  <
+   <div class="flex flex-col gap-[140px]">
+  <div class="text text-center mb-6 text-bg-yellow">
+          <div class="main mb-3">
+            <span class="text-2xl font-bold text-gray-800 text-shadow">Fun Electronic Projects</span>
+          </div>
+          <div class="tagline">
+            <span class="text-lg text-gray-700">Find inspiration here</span>
+          </div>
+        </div>
+
+  <!-- Button -->
+  <div class="button text-center relative z-10 ">
+    <a href="/guides/projects" class="button-hover inline-block bg-white text-black font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl">
+      Explore Projects
+    </a>
+  </div>
+  </div>
+
+</section>
+
+
+      <!-- Fun Electronic Projects Card -->
+     <section class="image-content-card card-hover gradient-yellow p-4 cursor-pointer h-[376px] ">
+
+  <!-- Background Image + Yellow Gradient Overlay -->
+   <div class=" rounded-2xl overflow-hidden mb-4 flex justify-center">
+  <img 
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752647425/modern-round-desk-fan-with-simple-background_psgjoe.jpg" 
+    alt="Fun Electronic Projects" 
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  </div>
+  <!-- Yellow semi-transparent gradient overlay -->
+
+
+  <!-- Foreground Content -->
+   <div class="flex flex-col gap-[140px]">
+  <div class="text text-center mb-6 text-bg-yellow">
+          <div class="main mb-3">
+            <span class="text-2xl font-bold text-gray-800 text-shadow">Fun Electronic Projects</span>
+          </div>
+          <div class="tagline">
+            <span class="text-lg text-gray-700">Find inspiration here</span>
+          </div>
+        </div>
+
+  <!-- Button -->
+  <div class="button text-center relative z-10 ">
+    <a href="/guides/projects" class="button-hover inline-block bg-white text-black font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl">
+      Explore Projects
+    </a>
+  </div>
+  </div>
+
+</section>
+
+
+      <!-- Electronic Skills Tutorials Card -->
+        <section class="image-content-card card-hover gradient-yellow p-4 cursor-pointer h-[376px] ">
+
+  <!-- Background Image + Yellow Gradient Overlay -->
+   <div class=" rounded-2xl overflow-hidden mb-4 flex justify-center">
+  <img 
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752650484/electric-ceiling-fan-decoration-inteior_cdzic8.jpg" 
+    alt="Fun Electronic Projects" 
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  </div>
+  <!-- Yellow semi-transparent gradient overlay -->
+
+
+  <!-- Foreground Content -->
+   <div class="flex flex-col gap-[140px]">
+  <div class="text text-center mb-6 text-bg-yellow">
+          <div class="main mb-3">
+            <span class="text-2xl font-bold text-gray-800 text-shadow">Fun Electronic Projects</span>
+          </div>
+          <div class="tagline">
+            <span class="text-lg text-gray-700">Find inspiration here</span>
+          </div>
+        </div>
+
+  <!-- Button -->
+  <div class="button text-center relative z-10 ">
+    <a href="/guides/projects" class="button-hover inline-block bg-white text-black font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl">
+      Explore Projects
+    </a>
+  </div>
+  </div>
+
+</section>
+
+    </div>
+  </div>
+
+ <style>
+
+
+
+  
+  @media (max-width: 1024px) {
+    .card-hover:hover {
+      flex: 1.2; /* less aggressive scaling on medium screens */
+    }
+    .headline-group:hover .card-hover:not(:hover) {
+      flex: 0.85;
+    }
+    .image-content-card {
+      height: 360px;
+    }
+    .text .main span {
+      font-size: 1.25rem; /* reduce heading size */
+    }
+    .text .tagline span {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .headline-group {
+      flex-direction: column;
+    }
+    .image-content-card {
+      height: auto;
+    }
+    .flex.flex-col.gap-\[140px\] {
+      gap: 80px !important;
+    }
+    .text .main span {
+      font-size: 1.125rem;
+    }
+    .text .tagline span {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .flex.flex-col.gap-\[140px\] {
+      gap: 50px !important;
+    }
+    .text .main span {
+      font-size: 1rem;
+    }
+    .text .tagline span {
+      font-size: 0.875rem;
+    }
+    .button-hover {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+  .button{
+
+  }
+    .card-hover {
+      transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      flex: 1;
+    }
+    .card-hover:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      flex: 1.5;
+    }
+    .headline-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .headline-group:hover .card-hover:not(:hover) {
+      flex: 0.75;
+      transform: scale(0.95);
+      opacity: 0.7;
+    }
+    .image-hover {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+    }
+    .image-hover:hover img {
+      transform: scale(1.15);
+    }
+    .gradient-pink {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+    }
+    .gradient-yellow {
+      background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #fdcb6e 100%);
+    }
+    .gradient-gray {
+      background: linear-gradient(135deg, #636e72 0%, #2d3436 50%, #74b9ff 100%);
+    }
+    .text-bg-pink,
+    .text-bg-yellow,
+    .text-bg-gray {
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 0.5rem;
+    }
+    .text-bg-pink {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .text-bg-yellow {
+     background-color: hsla(0, 0%, 100%, .75);
+    }
+    .text-bg-gray {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .button-hover {
+      transition: all 0.3s ease;
+      background-color: hsla(0, 0%, 100%, .75);
+    }
+    .button-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .image-content-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      flex: 1;
+    }
+    .image-content-card img {
+      transition: transform 0.4s ease;
+    }
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+
+
+  <!-- Services Carousel - FIXED -->
+<div class="logo-marquee-wrapper">
+  <!-- Left to Right -->
+  <div class="logo-marquee left">
+    <div class="logo-marquee-track">
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558908/Lister-Motor-Company-Logo_jtootx.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/havells-logo_ky0u7h.svg" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/luminous-logo-freelogovectors.net__ddbx6e.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/Bajaj-Logo_vhmjuu.png" />
+      <!-- Duplicate for seamless scroll -->
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558908/Lister-Motor-Company-Logo_jtootx.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/havells-logo_ky0u7h.svg" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/luminous-logo-freelogovectors.net__ddbx6e.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/Bajaj-Logo_vhmjuu.png" />
+    </div>
+  </div>
+
+  <!-- Right to Left -->
+  <div class="logo-marquee right mt-6">
+    <div class="logo-marquee-track reverse">
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/Crompton_Greaves_Logo.svg_def94u.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/Havells-logo_phlkgo.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/USHA_Logo.pdf_yrmffx.jpg" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/havells-logo_ky0u7h.svg" />
+      <!-- Duplicate -->
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/Crompton_Greaves_Logo.svg_def94u.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/Havells-logo_phlkgo.png" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558905/USHA_Logo.pdf_yrmffx.jpg" />
+      <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752558906/havells-logo_ky0u7h.svg" />
+    </div>
+  </div>
+</div>
+
+
+<style>
+.logo-marquee-wrapper {
+  background-color: #f5f3ef;
+  overflow: hidden;
+  padding: 50px 0;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.logo-marquee-track {
+  display: flex;
+  gap: 80px;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.logo-marquee-track.reverse {
+  animation: scroll-right 30s linear infinite;
+}
+
+.logo-marquee-track img {
+  width: 160px;
+  height: 124px;
+  object-fit: contain;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Scroll Left (LTR) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scroll Right (RTL) */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+</style>
+
+
+  <!-- Newsletter -->
+ <section class="bg-orange-500 py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <h3 class="text-white text-2xl font-bold">Subscribe to Our Newsletter</h3>
+      
+      <form 
+        id="newsletterForm"
+        action="https://formsubmit.co/amanpal6000@gmail.com"
+        method="POST"
+        class="flex flex-col sm:flex-row gap-4 w-full md:w-auto"
+      >
+        <input 
+          type="hidden" name="_captcha" value="false" />
+        
+        <input
+          type="email"
+          name="email"
+          placeholder="Your e-mail address"
+          class="px-4 py-3 rounded-md w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-orange-300"
+          required
+        />
+        
+        <button
+          type="submit"
+          class="bg-gray-900 text-white font-semibold px-6 py-3 rounded-md hover:bg-gray-800 transition whitespace-nowrap"
+        >
+          Subscribe Now
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <!-- News Section -->
+ <section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Heading & Paragraph -->
+    <div class="mb-12">
+      <span class="text-orange-500 font-semibold text-base">Latest News</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2">News & Updates</h2>
+      <p class="text-gray-600 text-base mt-2 max-w-2xl">
+        Stay informed with the latest updates from our electrical services team — from safety tips and installation guides to energy-saving hacks and tech innovations.
+      </p>
+    </div>
+
+    <!-- News Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- News Snippets -->
+      <div class="space-y-6">
+        <article class="border-l-4 border-orange-500 pl-4">
+          <p class="text-gray-400 text-sm mb-2">23 Nov, 2024</p>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Outdoor and Motion Lighting</h3>
+          <p class="text-gray-600 text-sm">Electricity is arguably the most valuable resource we have in our modern society...</p>
+        </article>
+
+        <article class="border-l-4 border-orange-500 pl-4">
+          <p class="text-gray-400 text-sm mb-2">14 Nov, 2024</p>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">How to Install a Ceiling Fan Where No Fixture Exists</h3>
+          <p class="text-gray-600 text-sm">Electricity is arguably the most valuable resource we have in our modern society...</p>
+        </article>
+      </div>
+
+      <!-- News Card 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752498786/IMG-20250714-WA0004_solfig.jpg" 
+             alt="Kitchen Electrical" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <p class="text-gray-400 text-sm mb-2">14 Nov, 2024</p>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">How to Get Electricity to a Kitchen Island</h3>
+          <p class="text-gray-600 text-sm mb-4">Electricity is arguably the most valuable resource we have in our modern society...</p>
+          <a href="tel:+9934051897" class="text-gray-800 font-semibold hover:text-orange-500 transition">Read More</a>
+        </div>
+      </div>
+
+      <!-- News Card 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752498787/IMG-20250714-WA0007_h5zwdi.jpg" 
+             alt="Landscape Lighting" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <p class="text-gray-400 text-sm mb-2">09 Nov, 2024</p>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">How to Install Landscape Lighting</h3>
+          <p class="text-gray-600 text-sm mb-4">Electricity is arguably the most valuable resource we have in our modern society...</p>
+          <a href="tel:+9934051897" class="text-gray-800 font-semibold hover:text-orange-500 transition">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="relative max-w-7xl mx-auto rounded overflow-hidden shadow-lg mb-[80px]">
+  <!-- Background Image -->
+  <img
+    src="https://res.cloudinary.com/dy2wdngax/image/upload/v1752653405/electrical-panel-with-fuses-contactors-closeup_kjrwav.jpg"
+    alt="Plant Sensor"
+    class="w-full h-[500px] object-cover "
+  />
+
+  <!-- Overlay Content -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent flex items-center px-10 py-6 sm:px-16">
+    <div class="text-white max-w-md">
+      <h2 class="text-3xl sm:text-4xl font-semibold leading-snug">
+        A group of great guides<br />for green thumbs
+      </h2>
+      <a
+        href="tel:+9934051897"
+        class="mt-6 inline-block border border-white text-white font-medium px-6 py-2 rounded-full hover:bg-white hover:text-black transition"
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Footer -->
+
+ <footer class="bg-gray-800 text-white py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Company Info -->
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-orange-500 text-2xl">⚡</span>
+          <span class="text-2xl font-bold">Electrician</span>
+        </div>
+        <p class="text-gray-300 mb-6">
+          Our experienced electricians are highly trained in all aspects of electrical service, from office lighting and security systems to emergency repair.
+        </p>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <ul class="space-y-2">
+               <li><a href="./index.html" class=" hover:text-orange-600 transition">Home</a></li>
+          <li><a href="./about.html" class="hover:text-orange-500 transition">About Us</a></li>
+          <li><a href="./product.html" class="hover:text-orange-500 transition">Shop</a></li>
+          <li><a href="./contact.html" class="hover:text-orange-500 transition">Contact</a></li>
+            </ul>
+          </div>
+         
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+       <div class="space-y-4">
+  <div class="flex items-start gap-3">
+    <svg class="w-10 h-10 text-orange-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 10-2.828 2.828l4.243 4.243a8 8 0 111.414-1.414z"/>
+    </svg>
+    <span class="text-gray-300">
+     Shree Ganesh Electric ,Kanvi Electric<br>
+      Marwari Tola lane, R. B. D. P. D. Lane, (Bal Subodhni School Gali),<br>
+      Bhagalpur-812002
+    </span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+    </svg>
+    <span class="text-gray-300">+91 99340 51897</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>
+    <span class="text-gray-300">Mon-Fri 08:00 AM - 10:00 PM</span>
+  </div>
+</div>
+
+<div class="space-y-4 mt-8">
+  <div class="flex items-start gap-3">
+    <svg class="w-10 h-10 text-orange-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 10-2.828 2.828l4.243 4.243a8 8 0 111.414-1.414z"/>
+    </svg>
+    <span class="text-gray-300">
+    Sagar Electronics <br>
+Kotwali chowk, In front of Dr. aziz X-Ray, R. P. Road, Bhagalpur -812002
+    </span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+    </svg>
+    <span class="text-gray-300">+91 88099 05445</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>
+    <span class="text-gray-300">Mon-Fri 08:00 AM - 10:00 PM</span>
+  </div>
+</div>
+
+      </div>
+
+      <!-- Map Section -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Our Location</h3>
+        <p class="text-gray-300 mb-4">
+          Visit our office or use the map below to get directions to our location in Bhagalpur, Bihar.
+        </p>
+        <div class="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d75333.03174881818!2d86.8926503687367!3d25.24473834251081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f04be0bb6e051d%3A0x8ee2ee2a3e8ecf88!2sM.T.Lane%2C%20Bhagalpur%2C%20Bihar%20812001!3m2!1d25.2447612!2d86.9750519!5e1!3m2!1sen!2sin!4v1752557627735!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; 2024 Electrician Services. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+  
+
+  <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  });
+ 
+  document.querySelectorAll('.logo-marquee').forEach(item => {
+  item.addEventListener('mouseenter', () => item.style.animationPlayState = 'paused');
+  item.addEventListener('mouseleave', () => item.style.animationPlayState = 'running');
+});
+
+
+</script>
+
+<script src="./main.js"></script>
+
+</body>
+</html>

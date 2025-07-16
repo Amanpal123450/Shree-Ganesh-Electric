@@ -1,0 +1,427 @@
+/* body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f7f9fa;
+  color: #333;
+}
+.navbar {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+}
+header.bg-primary {
+  background: linear-gradient(90deg, #0d6efd 60%, #003366 100%);
+}
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+.card-title {
+  font-weight: 600;
+  color: #0d6efd;
+}
+.card .display-4 {
+  font-size: 2.5rem;
+}
+section h2 {
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 1.5rem;
+}
+ul {
+  padding-left: 1.2rem;
+}
+ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+form .form-label {
+  font-weight: 500;
+}
+form .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15);
+}
+.btn-primary, .btn-light {
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+}
+section .mt-4 p {
+  margin-bottom: 0.3rem;
+}
+footer {
+  background: #003366;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-top: 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.hover-zoom:hover img {
+      transform: scale(1.1);
+    }
+    .hover-zoom img {
+      transition: transform 0.5s ease;
+    }
+@media (max-width: 767px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .card .display-4 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+ .service-section {
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+        }
+        
+        .service-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+        
+        .service-section:hover .service-bg {
+            transform: scale(1.1);
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .plus-btn {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .plus-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+        }
+        
+        .lightning-bolt {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 3rem;
+            color: #ff6b00;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .service-section:hover .lightning-bolt {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        .service-content {
+            position: relative;
+            z-index: 10;
+        }
+        .service-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+ 
+
+  .service-section:hover .service-bg {
+    transform: scale(1.9);
+  }
+ 
+
+
+
+
+
+
+
+
+
+
+
+  .slider-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lightbulb-icon {
+  background: linear-gradient(45deg, #ff7b00, #ff9500);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #ff7b00;
+  transform: scale(1.2);
+}
+
+.slide {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+} */
+
+
+
+.section-indent {
+  padding: 60px 0 0 0;
+  background: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title__01 {
+  color: #f47629;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.section-title__02 {
+  color: #252427;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 0;
+  letter-spacing: 0.2px;
+}
+
+.bulb-cards {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.bulb-card {
+  width: 320px;
+  background: transparent;
+  text-align: center;
+  padding: 0;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.bulb-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.bulb-shape {
+  width: 160px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  /* Bulb SVG mask */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="160" height="200" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg"><path d="M80 0c44.183 0 80 35.817 80 80 0 31.837-18.65 59.15-45.5 72.5V180a14 14 0 0 1-14 14h-41a14 14 0 0 1-14-14v-27.5C18.65 139.15 0 111.837 0 80 0 35.817 35.817 0 80 0z" fill="black"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg width="160" height="200" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg"><path d="M80 0c44.183 0 80 35.817 80 80 0 31.837-18.65 59.15-45.5 72.5V180a14 14 0 0 1-14 14h-41a14 14 0 0 1-14-14v-27.5C18.65 139.15 0 111.837 0 80 0 35.817 35.817 0 80 0z" fill="black"/></svg>');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  overflow: hidden;
+  background: #222;
+}
+
+.bulb-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.bulb-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: rgba(36,36,36,0.7);
+  padding: 12px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bulb-base {
+  width: 54px;
+  height: 32px;
+  margin: -12px auto 0 auto;
+  position: relative;
+  z-index: 2;
+  border-radius: 0 0 20px 20px;
+  background: none;
+}
+
+.bulb-base:before, .bulb-base:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.bulb-base:before {
+  width: 54px;
+  height: 8px;
+  background: #f47629;
+  bottom: 24px;
+}
+
+.bulb-base:after {
+  width: 34px;
+  height: 8px;
+  background: #f47629;
+  bottom: 12px;
+  box-shadow: 0 8px 24px 0 rgba(244,118,41,0.25);
+  opacity: 0;
+}
+
+.bulb-card:hover .bulb-base:after {
+  opacity: 1;
+  background: #f47629;
+  box-shadow: 0 4px 24px 0 #f47629;
+}
+
+.bulb-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 18px 0 8px 0;
+  color: #252427;
+  letter-spacing: 0.1px;
+}
+
+.bulb-desc {
+  font-size: 16px;
+  color: #888;
+  margin: 0 0 18px 0;
+  min-height: 44px;
+}
+
+.bulb-link {
+  display: inline-block;
+  color: #252427;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 2px solid #f47629;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.bulb-link:hover {
+  color: #f47629;
+}
+
+@media (max-width: 1100px) {
+  .section-title__02 {
+    font-size: 32px;
+  }
+  .bulb-cards {
+    gap: 24px;
+  }
+  .bulb-card {
+    width: 260px;
+  }
+  .bulb-shape {
+    width: 120px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 800px) {
+  .bulb-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .bulb-card {
+    width: 95%;
+    max-width: 350px;
+  }
+}
